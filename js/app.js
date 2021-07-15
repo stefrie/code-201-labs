@@ -8,6 +8,12 @@
  *  Constants
  */
 const defaultResponse = 'Woah! I did not expect that answer. Let\'s try the next question.';
+const totalQuestions = 7;
+
+/*
+ *  Script scope
+ */
+let visitorFinalScore = 0;
 
 /*
  *  Personalized welcome message.
@@ -33,6 +39,7 @@ switch (joesFirstName.toLowerCase()) {
     var response = 'That\s right! I am Joe!';
     alert(response);
     // console.log(response);
+    visitorFinalScore++;
     break;
 
   case 'n':
@@ -64,6 +71,7 @@ switch (joesServiceBranch.toLowerCase()) {
     var response = 'Correct! Joe was a Marine.';
     alert(response);
     // console.log(response);
+    visitorFinalScore++;
     break;
 
   case 'n':
@@ -103,6 +111,7 @@ switch (joesUniversity.toLowerCase()) {
     var response = 'Correct! Great job!';
     alert(response);
     // console.log(response);
+    visitorFinalScore++;
     break;
 
   default:
@@ -135,6 +144,7 @@ switch (joesLastJobEnding.toLowerCase()) {
     var response = 'Correct! Joe resigned his position to further his education.';
     alert(response);
     // console.log(response);
+    visitorFinalScore++;
     break;
 
   default:
@@ -160,6 +170,7 @@ switch (joesBusinessGoal.toLowerCase()) {
     var response = 'That\s correct! Joe wants to start a small dev shop!';
     alert(response);
     // console.log(response);
+    visitorFinalScore++;
     break;
 
   case 'n':
@@ -219,7 +230,9 @@ do {
     let correctMessage = 'Wow! You guessed it!';
     // console.log(correctMessage);
     alert(correctMessage)
+    visitorFinalScore++;
   }
+  canTryNumberGuessAgain = remainingNumberGuesses > 0;
 } while (!numberGuessedCorrectly && canTryNumberGuessAgain);
 
 if (!numberGuessedCorrectly) {
@@ -238,13 +251,16 @@ let canTryTopTenAgain = remainingTopTenGuesses > 0;
 
 do {
   let topTenGuessed = prompt(`Guess a design pattern from my top ten favorites! You have ${remainingTopTenGuesses} tries remaining.`);
-  // console.log(`Question 6 answer: ${numberGuessed}`);
+  // console.log(`Question 7 answer: ${topTenGuessed}`);
   remainingTopTenGuesses--;
   let wrongInputType = !topTenGuessed;
   let correctTopTenAnswer = false;
 
   for (let i = 0; i < topTenGuessed.length && !correctTopTenAnswer; i++) {
-    if (!wrongInputType && topTenGuessed.toLowerCase() === possibleTopTenAnswers[i]) correctTopTenAnswer = true;
+    if (!wrongInputType && topTenGuessed.toLowerCase() === possibleTopTenAnswers[i]) {
+      correctTopTenAnswer = true;
+      visitorFinalScore++;
+    }
   }
 
   if (!correctTopTenAnswer) {
@@ -258,15 +274,16 @@ do {
     // console.log(correctMessage);
     alert(correctMessage)
   }
+  canTryTopTenAgain = remainingTopTenGuesses > 0;
 } while (!topTenGuessedCorrectly && canTryTopTenAgain);
 
 if (!topTenGuessedCorrectly) {
-  var sorryMessage = `Sorry. Nice try though! The correct answers were: ${possibleTopTenAnswers.join(', ')}`;
+  var sorryMessage = `Sorry. Nice try though! The correct answers were one of the following: ${possibleTopTenAnswers.join(', ')}.`;
   // console.log(sorryMessage);
   alert(sorryMessage)
 }
 
 /*
- *  Display the visitor's name on exit.
+ *  Display the visitor's name and score on exit.
  */
-alert(`It was nice to meet you, ${visitorName}! Thanks for visiting and playing my game!`);
+alert(`It was nice to meet you, ${visitorName}! Your final score is ${visitorFinalScore}/7 (${(visitorFinalScore / 7) * 100}%)! Thanks for visiting and playing my game!`); // TODO: research string number formats

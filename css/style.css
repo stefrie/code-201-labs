@@ -1,0 +1,48 @@
+/* body * {
+  padding: 1em, 1em, 5em, 1em;
+} */
+
+h1 {
+  font-size: x-large;
+  padding-bottom: 1.5em;
+}
+
+h2 {
+  font-size: larger;
+}
+
+h3 {
+  font-size: large;
+}
+
+img {
+  width: 30%;
+}
+
+header,
+section {
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin: 30px 5px;
+  padding: 10px;
+}
+
+header {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+ul {
+  list-style: square;
+  list-style-position: inside;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

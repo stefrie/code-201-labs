@@ -1,5 +1,5 @@
 /*
- *  Lab: 02 - About Me, with a guessing game
+ *  Lab: 03 - Extend your 'About Me' and guessing game
  *  Author: Joe Ivans, 2021
  */
 'use strict';
@@ -44,7 +44,7 @@ switch (joesFirstName.toLowerCase()) {
 
   default:
     alert(defaultResponse);
-    // console.log(defaultResponse);
+  // console.log(defaultResponse);
 }
 
 /*
@@ -173,6 +173,57 @@ switch (joesBusinessGoal.toLowerCase()) {
     alert(defaultResponse);
     // console.log(defaultResponse);
     break;
+}
+
+/*
+ *  Question 6
+ *
+ */
+let numberGuessMinRange = 1;
+let numberGuessMaxRange = 100;
+
+let correctAnswer = 55;
+// let correctAnswer = Math.floor(Math.random() * (numberGuessMaxRange + 1 - numberGuessMinRange) + numberGuessMinRange); // Math lib usage adapted from https://mzl.la/3B2ABfL
+let remainingNumberGuesses = 4;
+let numberGuessedCorrectly = false;
+let canTryAgain = remainingNumberGuesses > 0;
+
+do {
+  let numberGuessed = prompt(`Guess a number from ${numberGuessMinRange} to ${numberGuessMaxRange}. You have ${remainingNumberGuesses} tries remaining.`);
+  remainingNumberGuesses--;
+  // console.log(`Question 6 answer: ${numberGuessed}`);
+
+  let wrongInputType = !numberGuessed;
+  let wrongAnswer = !wrongInputType && parseInt(numberGuessed) !== correctAnswer;
+
+  if (wrongInputType) {
+    let sorryMessage = `Sorry, that's not a number. Try entering a number.`;
+    // console.log(sorryMessage);
+    alert(sorryMessage)
+  }
+  else if (wrongAnswer) {
+    let sorryMessage = `Sorry, ${numberGuessed} is too low.`;
+
+    switch (numberGuessed > correctAnswer) {
+      case true:
+        sorryMessage = `Sorry, ${numberGuessed} is too high.`;
+        break;
+    }
+    // console.log(sorryMessage);
+    alert(sorryMessage)
+  }
+  else {
+    numberGuessedCorrectly = true;
+    let correctMessage = 'Wow! You guessed it!';
+    // console.log(correctMessage);
+    alert(correctMessage)
+  }
+} while (!numberGuessedCorrectly && canTryAgain);
+
+if (!numberGuessedCorrectly) {
+  var sorryMessage = `Sorry. I know it's hard to mind-read a computer. The correct answer was ${correctAnswer}`;
+  // console.log(sorryMessage);
+  alert(sorryMessage)
 }
 
 /*

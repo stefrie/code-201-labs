@@ -178,23 +178,25 @@ switch (joesBusinessGoal.toLowerCase()) {
 /*
  *  Question 6
  *
+ *  Ask numeric question.
+ *  Give visitor a range.
+ *  Give feedback if guess is too high/low.
+ *  Give visitor exactly 4 tries to guess correctly.
+ *  Give the correct answer when all tries are exhausted.
  */
 let numberGuessMinRange = 1;
 let numberGuessMaxRange = 100;
-
-let correctAnswer = 55;
-// let correctAnswer = Math.floor(Math.random() * (numberGuessMaxRange + 1 - numberGuessMinRange) + numberGuessMinRange); // Math lib usage adapted from https://mzl.la/3B2ABfL
+let correctNumberGuessAnswer = Math.floor(Math.random() * (numberGuessMaxRange + 1 - numberGuessMinRange) + numberGuessMinRange); // Math lib usage adapted from https://mzl.la/3B2ABfL
 let remainingNumberGuesses = 4;
 let numberGuessedCorrectly = false;
-let canTryAgain = remainingNumberGuesses > 0;
+let canTryNumberGuessAgain = remainingNumberGuesses > 0;
 
 do {
   let numberGuessed = prompt(`Guess a number from ${numberGuessMinRange} to ${numberGuessMaxRange}. You have ${remainingNumberGuesses} tries remaining.`);
-  remainingNumberGuesses--;
   // console.log(`Question 6 answer: ${numberGuessed}`);
-
+  remainingNumberGuesses--;
   let wrongInputType = !numberGuessed;
-  let wrongAnswer = !wrongInputType && parseInt(numberGuessed) !== correctAnswer;
+  let wrongAnswer = wrongInputType || parseInt(numberGuessed) !== correctNumberGuessAnswer;
 
   if (wrongInputType) {
     let sorryMessage = `Sorry, that's not a number. Try entering a number.`;
@@ -204,7 +206,7 @@ do {
   else if (wrongAnswer) {
     let sorryMessage = `Sorry, ${numberGuessed} is too low.`;
 
-    switch (numberGuessed > correctAnswer) {
+    switch (numberGuessed > correctNumberGuessAnswer) {
       case true:
         sorryMessage = `Sorry, ${numberGuessed} is too high.`;
         break;
@@ -218,10 +220,48 @@ do {
     // console.log(correctMessage);
     alert(correctMessage)
   }
-} while (!numberGuessedCorrectly && canTryAgain);
+} while (!numberGuessedCorrectly && canTryNumberGuessAgain);
 
 if (!numberGuessedCorrectly) {
-  var sorryMessage = `Sorry. I know it's hard to mind-read a computer. The correct answer was ${correctAnswer}`;
+  var sorryMessage = `Sorry. I know it's hard to mind-read a computer. The correct answer was ${correctNumberGuessAnswer}`;
+  // console.log(sorryMessage);
+  alert(sorryMessage)
+}
+
+/*
+ *  Question 7
+ */
+let possibleTopTenAnswers = ['abstract factory', 'composite', 'decorator', 'strategy', 'state', 'mediator', 'command', 'proxy', 'visitor', 'iterator',];
+let remainingTopTenGuesses = 6;
+let topTenGuessedCorrectly = false;
+let canTryTopTenAgain = remainingTopTenGuesses > 0;
+
+do {
+  let topTenGuessed = prompt(`Guess a design pattern from my top ten favorites! You have ${remainingTopTenGuesses} tries remaining.`);
+  // console.log(`Question 6 answer: ${numberGuessed}`);
+  remainingTopTenGuesses--;
+  let wrongInputType = !topTenGuessed;
+  let correctTopTenAnswer = false;
+
+  for (let i = 0; i < topTenGuessed.length && !correctTopTenAnswer; i++) {
+    if (!wrongInputType && topTenGuessed.toLowerCase() === possibleTopTenAnswers[i]) correctTopTenAnswer = true;
+  }
+
+  if (!correctTopTenAnswer) {
+    let sorryMessage = `Sorry, ${topTenGuessed} is not in my list of top ten.`;
+    // console.log(sorryMessage);
+    alert(sorryMessage)
+  }
+  else {
+    topTenGuessedCorrectly = true;
+    let correctMessage = 'Wow! You guessed it!';
+    // console.log(correctMessage);
+    alert(correctMessage)
+  }
+} while (!topTenGuessedCorrectly && canTryTopTenAgain);
+
+if (!topTenGuessedCorrectly) {
+  var sorryMessage = `Sorry. Nice try though! The correct answers were: ${possibleTopTenAnswers.join(', ')}`;
   // console.log(sorryMessage);
   alert(sorryMessage)
 }

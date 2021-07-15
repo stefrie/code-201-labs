@@ -256,7 +256,7 @@ do {
   let wrongInputType = !topTenGuessed;
   let correctTopTenAnswer = false;
 
-  for (let i = 0; i < topTenGuessed.length && !correctTopTenAnswer; i++) {
+  for (let i = 0; i < possibleTopTenAnswers.length && !correctTopTenAnswer; i++) {
     if (!wrongInputType && topTenGuessed.toLowerCase() === possibleTopTenAnswers[i]) {
       correctTopTenAnswer = true;
       visitorFinalScore++;

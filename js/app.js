@@ -1,5 +1,5 @@
 /*
- *  Lab: 03 - Extend your 'About Me' and guessing game
+ *  Lab: 04 - Extend your 'About Me' and guessing game
  *  Author: Joe Ivans, 2021
  */
 'use strict';
@@ -36,18 +36,22 @@ let joesFirstName = prompt('Yes/No: The site author\'s first name Joe?');
 switch (joesFirstName.toLowerCase()) {
   case 'y':
   case 'yes':
-    var response = 'That\s right! I am Joe!';
-    alert(response);
-    // console.log(response);
-    visitorFinalScore++;
-    break;
+    {
+      let response = 'That\s right! I am Joe!';
+      alert(response);
+      // console.log(response);
+      visitorFinalScore++;
+      break;
+    }
 
   case 'n':
   case 'no':
-    var response = 'Unfortunately, you\'re incorrect. The author\'s name is Joe.';
-    alert(response);
-    // console.log(response);
-    break;
+    {
+      let response = 'Unfortunately, you\'re incorrect. The author\'s name is Joe.';
+      alert(response);
+      // console.log(response);
+      break;
+    }
 
   default:
     alert(defaultResponse);
@@ -68,18 +72,22 @@ let joesServiceBranch = prompt('Yes/No: Was Joe a US Marine?');
 switch (joesServiceBranch.toLowerCase()) {
   case 'y':
   case 'yes':
-    var response = 'Correct! Joe was a Marine.';
-    alert(response);
-    // console.log(response);
-    visitorFinalScore++;
-    break;
+    {
+      let response = 'Correct! Joe was a Marine.';
+      alert(response);
+      // console.log(response);
+      visitorFinalScore++;
+      break;
+    }
 
   case 'n':
   case 'no':
-    var response = 'Better luck next time. The correct answer is Yes, Joe was a Marine.';
-    alert(response);
-    // console.log(response);
-    break;
+    {
+      let response = 'Better luck next time. The correct answer is Yes, Joe was a Marine.';
+      alert(response);
+      // console.log(response);
+      break;
+    }
 
   default:
     alert(defaultResponse);
@@ -101,18 +109,22 @@ let joesUniversity = prompt('Yes/No: Joe graduated from University of California
 switch (joesUniversity.toLowerCase()) {
   case 'y':
   case 'yes':
-    var response = 'Sorry, it was a bit of a trick question. Joe graduated from Cal State Poly.';
-    alert(response);
-    // console.log(response);
-    break;
+    {
+      let response = 'Sorry, it was a bit of a trick question. Joe graduated from Cal State Poly.';
+      alert(response);
+      // console.log(response);
+      break;
+    }
 
   case 'n':
   case 'no':
-    var response = 'Correct! Great job!';
-    alert(response);
-    // console.log(response);
-    visitorFinalScore++;
-    break;
+    {
+      let response = 'Correct! Great job!';
+      alert(response);
+      // console.log(response);
+      visitorFinalScore++;
+      break;
+    }
 
   default:
     alert(defaultResponse);
@@ -134,18 +146,22 @@ let joesLastJobEnding = prompt('Yes/No: Joe\'s entire department at his last job
 switch (joesLastJobEnding.toLowerCase()) {
   case 'y':
   case 'yes':
-    var response = 'Sorry that\'s incorrect. As great of a story as that would be, Joe actually resigned his position to further his education.';
-    alert(response);
-    // console.log(response);
-    break;
+    {
+      let response = 'Sorry that\'s incorrect. As great of a story as that would be, Joe actually resigned his position to further his education.';
+      alert(response);
+      // console.log(response);
+      break;
+    }
 
   case 'n':
   case 'no':
-    var response = 'Correct! Joe resigned his position to further his education.';
-    alert(response);
-    // console.log(response);
-    visitorFinalScore++;
-    break;
+    {
+      let response = 'Correct! Joe resigned his position to further his education.';
+      alert(response);
+      // console.log(response);
+      visitorFinalScore++;
+      break;
+    }
 
   default:
     alert(defaultResponse);
@@ -167,18 +183,22 @@ let joesBusinessGoal = prompt('Yes/No: Joe wants to start a small business?');
 switch (joesBusinessGoal.toLowerCase()) {
   case 'y':
   case 'yes':
-    var response = 'That\s correct! Joe wants to start a small dev shop!';
-    alert(response);
-    // console.log(response);
-    visitorFinalScore++;
-    break;
+    {
+      let response = 'That\s correct! Joe wants to start a small dev shop!';
+      alert(response);
+      // console.log(response);
+      visitorFinalScore++;
+      break;
+    }
 
   case 'n':
   case 'no':
-    var response = 'Sorry, that\'s incorrect. I know, it\'s crazy for a developer to want to start a business. I\'ll leave you with a quote from an econ professor I had: \'Two-thirds of businesses fail. So start three and you should be fine.\'';
-    alert(response);
-    // console.log(response);
-    break;
+    {
+      let response = 'Sorry, that\'s incorrect. I know, it\'s crazy for a developer to want to start a business. I\'ll leave you with a quote from an econ professor I had: \'Two-thirds of businesses fail. So start three and you should be fine.\'';
+      alert(response);
+      // console.log(response);
+      break;
+    }
 
   default:
     alert(defaultResponse);
@@ -236,7 +256,7 @@ do {
 } while (!numberGuessedCorrectly && canTryNumberGuessAgain);
 
 if (!numberGuessedCorrectly) {
-  var sorryMessage = `Sorry. I know it's hard to mind-read a computer. The correct answer was ${correctNumberGuessAnswer}`;
+  let sorryMessage = `Sorry. I know it's hard to mind-read a computer. The correct answer was ${correctNumberGuessAnswer}`;
   // console.log(sorryMessage);
   alert(sorryMessage)
 }
@@ -278,7 +298,7 @@ do {
 } while (!topTenGuessedCorrectly && canTryTopTenAgain);
 
 if (!topTenGuessedCorrectly) {
-  var sorryMessage = `Sorry. Nice try though! The correct answers were one of the following: ${possibleTopTenAnswers.join(', ')}.`;
+  let sorryMessage = `Sorry. Nice try though! The correct answers were one of the following: ${possibleTopTenAnswers.join(', ')}.`;
   // console.log(sorryMessage);
   alert(sorryMessage)
 }

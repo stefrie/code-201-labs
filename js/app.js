@@ -22,188 +22,33 @@ let visitorName = prompt('Welcome! What\'s your name?');
 // console.log(`Visitor's name is ${visitorName}`);
 alert(`Thanks for visiting, ${visitorName}`);
 
-/*
- *  Question 1
- *
- *  Ask yes/no question.
- *  Log answer.
- *  Check lowercase normalized answer and respond to yes/no or y/n answers.
- *  If answer is not expected, use a respectful default respnose.
- *  Log response.
- */
-let joesFirstName = prompt('Yes/No: The site author\'s first name Joe?');
-// console.log(`Question 1 answer: ${joesFirstName}`);
-switch (joesFirstName.toLowerCase()) {
-  case 'y':
-  case 'yes':
-    {
-      let response = 'That\s right! I am Joe!';
-      alert(response);
-      // console.log(response);
-      visitorFinalScore++;
-      break;
-    }
 
-  case 'n':
-  case 'no':
-    {
-      let response = 'Unfortunately, you\'re incorrect. The author\'s name is Joe.';
-      alert(response);
-      // console.log(response);
-      break;
-    }
+yesNoQuestion(prompt('Yes/No: The site author\'s first name Joe?'), 'That\'s right! I am Joe!', 'Unfortunately, you\'re incorrect. The author\'s name is Joe.');
+yesNoQuestion(prompt('Yes/No: Was Joe a US Marine?'), 'Correct! Joe was a Marine.', 'Better luck next time. The correct answer is Yes, Joe was a Marine.');
+yesNoQuestion(prompt('Yes/No: Joe graduated from University of California, Los Angeles?'), 'Correct! Great job!', 'Sorry, it was a bit of a trick question. Joe graduated from Cal State Poly.');
+yesNoQuestion(prompt('Yes/No: Joe\'s entire department at his last job was laid-off, including him.'), 'Correct! Joe resigned his position to further his education.', 'Sorry that\'s incorrect. As great of a story as that would be, Joe actually resigned his position to further his education.');
+yesNoQuestion(prompt('Yes/No: Joe wants to start a small business?'), 'That\'s correct! Joe wants to start a small dev shop!', 'Sorry, that\'s incorrect. I know, it\'s crazy for a developer to want to start a business. I\'ll leave you with a quote from an econ professor I had: \'Two-thirds of businesses fail. So start three and you should be fine.\'');
 
-  default:
-    alert(defaultResponse);
-  // console.log(defaultResponse);
-}
+function yesNoQuestion(prompt, yesResponse, noResponse) {
+  // console.log(`Question 1 answer: ${joesFirstName}`);
+  switch (prompt.toLowerCase()) {
+    case 'y':
+    case 'yes':
+        alert(yesResponse);
+        visitorFinalScore++;
+        break;
 
-/*
- *  Question 2
- *
- *  Ask yes/no question.
- *  Log answer.
- *  Check lowercase normalized answer and respond to yes/no or y/n answers.
- *  If answer is not expected, use a respectful default respnose.
- *  Log response.
- */
-let joesServiceBranch = prompt('Yes/No: Was Joe a US Marine?');
-// console.log(`Question 2 answer: ${joesServiceBranch}`);
-switch (joesServiceBranch.toLowerCase()) {
-  case 'y':
-  case 'yes':
-    {
-      let response = 'Correct! Joe was a Marine.';
-      alert(response);
-      // console.log(response);
-      visitorFinalScore++;
-      break;
-    }
-
-  case 'n':
-  case 'no':
-    {
-      let response = 'Better luck next time. The correct answer is Yes, Joe was a Marine.';
-      alert(response);
-      // console.log(response);
-      break;
-    }
-
-  default:
-    alert(defaultResponse);
+    case 'n':
+    case 'no':
+      
+        alert(noResponse);
+        // console.log(response);
+        break;
+      
+    default:
+      alert(defaultResponse);
     // console.log(defaultResponse);
-    break;
-}
-
-/*
- *  Question 3
- *
- *  Ask yes/no question.
- *  Log answer.
- *  Check lowercase normalized answer and respond to yes/no or y/n answers.
- *  If answer is not expected, use a respectful default respnose.
- *  Log response.
- */
-let joesUniversity = prompt('Yes/No: Joe graduated from University of California, Los Angeles?');
-// console.log(`Question 3 answer: ${joesUniversity}`);
-switch (joesUniversity.toLowerCase()) {
-  case 'y':
-  case 'yes':
-    {
-      let response = 'Sorry, it was a bit of a trick question. Joe graduated from Cal State Poly.';
-      alert(response);
-      // console.log(response);
-      break;
-    }
-
-  case 'n':
-  case 'no':
-    {
-      let response = 'Correct! Great job!';
-      alert(response);
-      // console.log(response);
-      visitorFinalScore++;
-      break;
-    }
-
-  default:
-    alert(defaultResponse);
-    // console.log(defaultResponse);
-    break; // good research opportunity --> do I really need to break here?
-}
-
-/*
- *  Question 4
- *
- *  Ask yes/no question.
- *  Log answer.
- *  Check lowercase normalized answer and respond to yes/no or y/n answers.
- *  If answer is not expected, use a respectful default respnose.
- *  Log response.
- */
-let joesLastJobEnding = prompt('Yes/No: Joe\'s entire department at his last job was laid-off, including him.');
-// console.log(`Question 4 answer: ${joesLastJobEnding}`);
-switch (joesLastJobEnding.toLowerCase()) {
-  case 'y':
-  case 'yes':
-    {
-      let response = 'Sorry that\'s incorrect. As great of a story as that would be, Joe actually resigned his position to further his education.';
-      alert(response);
-      // console.log(response);
-      break;
-    }
-
-  case 'n':
-  case 'no':
-    {
-      let response = 'Correct! Joe resigned his position to further his education.';
-      alert(response);
-      // console.log(response);
-      visitorFinalScore++;
-      break;
-    }
-
-  default:
-    alert(defaultResponse);
-    // console.log(defaultResponse);
-    break;
-}
-
-/*
- *  Question 5
- *
- *  Ask yes/no question.
- *  Log answer.
- *  Check lowercase normalized answer and respond to yes/no or y/n answers.
- *  If answer is not expected, use a respectful default respnose.
- *  Log response.
- */
-let joesBusinessGoal = prompt('Yes/No: Joe wants to start a small business?');
-// console.log(`Question 5 answer: ${joesBusinessGoal}`);
-switch (joesBusinessGoal.toLowerCase()) {
-  case 'y':
-  case 'yes':
-    {
-      let response = 'That\s correct! Joe wants to start a small dev shop!';
-      alert(response);
-      // console.log(response);
-      visitorFinalScore++;
-      break;
-    }
-
-  case 'n':
-  case 'no':
-    {
-      let response = 'Sorry, that\'s incorrect. I know, it\'s crazy for a developer to want to start a business. I\'ll leave you with a quote from an econ professor I had: \'Two-thirds of businesses fail. So start three and you should be fine.\'';
-      alert(response);
-      // console.log(response);
-      break;
-    }
-
-  default:
-    alert(defaultResponse);
-    // console.log(defaultResponse);
-    break;
+  }
 }
 
 /*
